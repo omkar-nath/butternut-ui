@@ -1,5 +1,4 @@
 import React from 'react';
-import ColorInput from '../Theme/ColorInput';
 import "./Button.css";
 
 export interface ButtonProps{
@@ -7,7 +6,7 @@ export interface ButtonProps{
 }
 
 const Button = (props:ButtonProps)=>{
-    return (<><ColorInput></ColorInput></>);
+    return (<button/>);
 }
 
 export default Button;
