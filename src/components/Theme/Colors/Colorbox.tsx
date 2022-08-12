@@ -2,24 +2,42 @@ import React from "react";
 import styled,{css} from 'styled-components';
 
 type Props={
+    colorKey:string,
     height?:string,
     width?:string,
     border?:string,
     backgroundColor:any
+    onColor?:string;
 }
 
-const Box=styled.div`
+const Box=styled.div.attrs(()=>({}))`
 height:${(props:Props)=>props.height || '100px'};
+position: relative;
+text-align:center;
 width:${(props:Props)=>props.width || '125px'};
-background:${(props:Props)=>props.backgroundColor};
 border:${(props:Props)=>props.border};
-box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
 `
 
+const BoxDetail=styled.h4.attrs((props:Props)=>({
+  style:{
+    color:props.onColor,
+  } 
+}))`
+position:absolute;
+padding:22%;
+`;
+
+//Not passing color prop to styled component because this will create 100s of classnames because of the re-renders
 
 const Colorbox=(props:Props)=>{
     return (
-        <Box {...props}></Box>
+        <Box style={{background:props.backgroundColor}} {...props}>
+           <div>
+            </div>
+            <div>
+            <BoxDetail {...props}>{props.backgroundColor}</BoxDetail>
+            </div>
+        </Box>
     )
 }
 
