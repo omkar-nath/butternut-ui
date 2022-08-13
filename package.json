@@ -7,10 +7,11 @@
   "description": "Collest react component library",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
+  "types": "dist/index.d.ts",
   "files": [
     "dist"
   ],
-  "types": "dist/index.d.ts",
+
   "scripts": {
     "build": "rollup -c",
     "test": "jest",
@@ -68,14 +69,14 @@
   },
   "peerDependencies": {
     "react": "^18.2.0",
-    "react-color": "^2.19.3",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "styled-components": "^5.3.5"
   },
   "dependencies": {
     "@material/material-color-utilities": "^0.2.0",
     "@storybook/addons": "^6.5.10",
+    "react-color": "^2.19.3",
     "@storybook/theming": "^6.5.10",
-    "styled-components": "^5.3.5",
     "tslib": "^2.4.0"
   }
 }
