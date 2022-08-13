@@ -10,6 +10,7 @@ const packageJson = require("./package.json");
 
 export default [
   {
+    external: ['react','react-dom','styled-components'],
     input: "src/index.ts",
     output: [
       {
@@ -27,12 +28,13 @@ export default [
       peerDepsExternal(),
       resolve(),
       commonjs(),
-      typescript({ tsconfig: "./tsconfig.json" }),
+      typescript({ tsconfig: "./tsconfig.json",exclude: ["**/__tests__", "**/*.test.ts","**/*.stories.tsx"]} ),
       postcss(),
       terser(),
     ],
   },
   {
+    external: ['react','react-dom','styled-components'],
     input: "dist/esm/index.d.ts",
     output: [{ file: "dist/index.d.ts", format: "esm" }],
     plugins: [dts()],
