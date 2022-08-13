@@ -3,12 +3,14 @@ import {
   hexFromArgb,
   themeFromSourceColor,
 } from "@material/material-color-utilities";
+import {DEFAULT_PRIMARY_COLOR} from './constants';
 
-function generateColorTheme(color: string) {
+function generateColorPalette(color: string) {
+  color = color || DEFAULT_PRIMARY_COLOR;
   const theme = themeFromSourceColor(argbFromHex(color));
-  const colorTones: any = {};
-  const light: any = {};
-  const dark: any = {};
+  const colorTones: Record<string,string> = {};
+  const light: Record<string,string>= {};
+  const dark: Record<string,string>= {};
 
   for (const [key, value] of Object.entries(theme.schemes.light.toJSON())) {
     const color = hexFromArgb(value);
@@ -27,7 +29,8 @@ function generateColorTheme(color: string) {
     colorTones[key] = tones;
   }
   return {
-    color: {
+    palette: {
+      isDark:false,
       light,
       dark,
       colorTones,
@@ -60,4 +63,4 @@ function padZero(str: any, len = 0) {
   return (zeros + str).slice(-len);
 }
 
-export { generateColorTheme, invertColor };
+export { generateColorPalette, invertColor };

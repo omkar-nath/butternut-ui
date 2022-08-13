@@ -1,23 +1,23 @@
 import React, { useState, useEffect } from "react";
 import Colorbox from "./Colorbox";
 import ColorPicker from "./ColorPicker";
-import { generateColorTheme, invertColor } from "./utils/generateColorTheme";
-import styled, { css } from "styled-components";
-import { ColorTheme } from "../types";
+import { generateColorPalette, invertColor } from "./utils/generateColorPalette";
+import styled  from "styled-components";
+import { Colors } from "../types";
 
-const FlexContainer = styled.div.attrs((props) => ({}))`
+const FlexContainer = styled.div.attrs(() => ({}))`
   display: flex;
   margin-bottom: 10px;
 `;
 
-const GridContainer = styled.div.attrs((props) => ({}))`
+const GridContainer = styled.div.attrs(() => ({}))`
   display: grid;
 `;
 
 const Theme = () => {
-  const [color, setColor] = useState("#0B57D0");
-  const [colors, setColors] = useState<ColorTheme>(() =>
-    generateColorTheme(color)
+  const [color, setColor] = useState('');
+  const [colors, setColors] = useState<Colors>(() =>
+    generateColorPalette(color)
   );
 
   const handleChange = (color: any) => {
@@ -25,12 +25,12 @@ const Theme = () => {
   };
 
   useEffect(() => {
-    const theme = generateColorTheme(color);
+    const theme = generateColorPalette(color);
     setColors(theme);
     console.log(theme);
   }, [color]);
 
-  const { light, dark, colorTones } = colors.color;
+  const { light, dark } = colors.palette;
 
   return (
     <>
@@ -305,7 +305,7 @@ const Theme = () => {
       <div>
         <h3>Primary</h3>
         <FlexContainer>
-          {Object.entries(colors["color"]["colorTones"]["primary"]).map(
+          {Object.entries(colors["palette"]["colorTones"]["primary"]).map(
             ([key, value]) => {
               return (
                 <Colorbox
@@ -319,7 +319,7 @@ const Theme = () => {
         </FlexContainer>
         <h3>Secondary</h3>
         <FlexContainer>
-          {Object.entries(colors["color"]["colorTones"]["secondary"]).map(
+          {Object.entries(colors["palette"]["colorTones"]["secondary"]).map(
             ([key, value]) => {
               return (
                 <Colorbox
@@ -333,7 +333,7 @@ const Theme = () => {
         </FlexContainer>
         <h3>Tertiary</h3>
         <FlexContainer>
-          {Object.entries(colors["color"]["colorTones"]["tertiary"]).map(
+          {Object.entries(colors["palette"]["colorTones"]["tertiary"]).map(
             ([key, value]) => {
               return (
                 <Colorbox
@@ -347,7 +347,7 @@ const Theme = () => {
         </FlexContainer>
         <h3>Neutral</h3>
         <FlexContainer>
-          {Object.entries(colors["color"]["colorTones"]["neutral"]).map(
+          {Object.entries(colors["palette"]["colorTones"]["neutral"]).map(
             ([key, value]) => {
               return (
                 <Colorbox
@@ -361,7 +361,7 @@ const Theme = () => {
         </FlexContainer>
         <h3>Neutral Variant</h3>
         <FlexContainer>
-          {Object.entries(colors["color"]["colorTones"]["neutralVariant"]).map(
+          {Object.entries(colors["palette"]["colorTones"]["neutralVariant"]).map(
             ([key, value]) => {
               return (
                 <Colorbox
@@ -375,7 +375,7 @@ const Theme = () => {
         </FlexContainer>
         <h3>Error</h3>
         <FlexContainer>
-          {Object.entries(colors["color"]["colorTones"]["error"]).map(
+          {Object.entries(colors["palette"]["colorTones"]["error"]).map(
             ([key, value]) => {
               return (
                 <Colorbox
