@@ -18,7 +18,12 @@
   },
   "keywords": [
     "React",
-    "Components"
+    "Component",
+    "Library",
+    "Rollup",
+    "Typescript",
+    "Sass",
+    "Storybook"
   ],
   "author": "Omkar Nath",
   "license": "MIT",
@@ -33,7 +38,6 @@
     "@babel/preset-typescript": "^7.18.6",
     "@rollup/plugin-commonjs": "^22.0.1",
     "@rollup/plugin-node-resolve": "^13.3.0",
-    "@rollup/plugin-typescript": "^8.3.4",
     "@storybook/addon-actions": "^6.5.10",
     "@storybook/addon-essentials": "^6.5.10",
     "@storybook/addon-interactions": "^6.5.10",
@@ -56,6 +60,7 @@
     "rollup": "^2.77.2",
     "rollup-plugin-dts": "^4.2.2",
     "rollup-plugin-peer-deps-external": "^2.2.4",
+    "rollup-plugin-typescript2": "^0.32.1",
     "rollup-plugin-postcss": "^4.0.1",
     "rollup-plugin-terser": "^7.0.2",
     "typescript": "^4.7.4"
@@ -71,6 +76,7 @@
     "@storybook/addons": "^6.5.10",
     "@storybook/theming": "^6.5.10",
     "react-color": "^2.19.3",
+
     "tslib": "^2.4.0"
   },
   "main": "dist/cjs/index.js",
