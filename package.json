@@ -9,7 +9,7 @@
     "build": "rollup -c",
     "test": "jest",
     "storybook": "start-storybook -p 6006",
-    "postinstall1": "find './node_modules/@material/material-color-utilities/' -type f -name '*.js' -exec sed -Ei '/(import|export)/s/(\\x22|\\x27)(\\.{1,2}\\/(([[:alnum:]_-]+|\\.{2})\\/)*[[:alnum:]_-]+)(\\.js)?\\1/\\1\\2.js\\1/g' {} +",
+    "postinstall1": "find './node_modules/@material/material-color-utilities/' -type f -name '*.js' -exec sed -E i '/(import|export)/s/(\\x22|\\x27)(\\.{1,2}\\/(([[:alnum:]_-]+|\\.{2})\\/)*[[:alnum:]_-]+)(\\.js)?\\1/\\1\\2.js\\1/g' {} +",
     "build-storybook": "install-peers && build-storybook"
   },
   "repository": {
@@ -72,6 +72,8 @@
     "styled-components": "^5.3.5"
   },
   "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
     "@material/material-color-utilities": "^0.2.0",
     "@storybook/addons": "^6.5.10",
     "@storybook/theming": "^6.5.10",
