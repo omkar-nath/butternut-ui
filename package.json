@@ -9,8 +9,8 @@
     "build": "rollup -c",
     "test": "jest",
     "storybook": "start-storybook -p 6006",
-    "postinstall1": "find './node_modules/@material/material-color-utilities/' -type f -name '*.js' -exec sed -E i '/(import|export)/s/(\\x22|\\x27)(\\.{1,2}\\/(([[:alnum:]_-]+|\\.{2})\\/)*[[:alnum:]_-]+)(\\.js)?\\1/\\1\\2.js\\1/g' {} +",
-    "build-storybook": "install-peers && build-storybook"
+    "postinstall1": "find './node_modules/@material/material-color-utilities' -type f -name '*.js' -exec \\ sed -Ei '\/(import|export)\/s\/(\\x22|\\x27)(\\.{1,2}\\\/(([[:alnum:]_-]+|\\.{2})\\\/)*[[:alnum:]_-]+)(\\.js)?\\1\/\\1\\2.js\\1\/g' {} +",
+    "build-storybook": "build-storybook"
   },
   "repository": {
     "type": "git",
