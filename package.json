@@ -5,13 +5,6 @@
   },
   "version": "0.0.2",
   "description": "Collest react component library",
-  "main": "dist/cjs/index.js",
-  "module": "dist/esm/index.js",
-  "types": "dist/index.d.ts",
-  "files": [
-    "dist"
-  ],
-
   "scripts": {
     "build": "rollup -c",
     "test": "jest",
@@ -63,11 +56,12 @@
     "rollup": "^2.77.2",
     "rollup-plugin-dts": "^4.2.2",
     "rollup-plugin-peer-deps-external": "^2.2.4",
-    "rollup-plugin-postcss": "^4.0.2",
+    "rollup-plugin-postcss": "^4.0.1",
     "rollup-plugin-terser": "^7.0.2",
     "typescript": "^4.7.4"
   },
   "peerDependencies": {
+    "postcss": "^8.0.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "styled-components": "^5.3.5"
@@ -75,8 +69,14 @@
   "dependencies": {
     "@material/material-color-utilities": "^0.2.0",
     "@storybook/addons": "^6.5.10",
-    "react-color": "^2.19.3",
     "@storybook/theming": "^6.5.10",
+    "react-color": "^2.19.3",
     "tslib": "^2.4.0"
-  }
+  },
+  "main": "dist/cjs/index.js",
+  "module": "dist/esm/index.js",
+  "files": [
+    "dist"
+  ],
+  "types": "dist/index.d.ts"
 }
