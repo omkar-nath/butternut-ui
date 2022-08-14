@@ -27,7 +27,6 @@ const Theme = () => {
   useEffect(() => {
     const theme = generateColorPalette(color);
     setColors(theme);
-    console.log(theme);
   }, [color]);
 
   const { light, dark } = colors.palette;

@@ -76,7 +76,7 @@
     "@storybook/addons": "^6.5.10",
     "@storybook/theming": "^6.5.10",
     "react-color": "^2.19.3",
-
+    "styled-components": "^5.3.5",
     "tslib": "^2.4.0"
   },
   "main": "dist/cjs/index.js",

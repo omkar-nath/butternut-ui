@@ -2,7 +2,8 @@ import React from 'react';
 import styled from 'styled-components';
 
 const ButtonComp = styled('button')`
-    font-size:30px
+    font-size:30px;
+    background-color:'pink';
 `
 
 export interface ButtonProps{
