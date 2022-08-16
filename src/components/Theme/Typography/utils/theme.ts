@@ -1,9 +1,16 @@
-import { generateColorPalette } from "./Colors/utils/generateColorPalette";
+import { generateColorPalette } from "../../Colors/utils/generateColorPalette";
+import  generateTypography  from "../../Typography/utils/generateTypography";
+
 
 function generateTheme(options: any = {}) {
-  const colorPalette = generateColorPalette(options.primaryColor);
+
+  const {primaryColor,typography:customTypography={}}=options;
+
+
+  const colorPalette = generateColorPalette(primaryColor);
+  const typography = generateTypography(customTypography);
   //TODO: Add code for other theme defaults
-  const typograpgy = {};
+
   const spacing = {};
   const breakpoints = {};
   const zIndex = {};
@@ -11,7 +18,7 @@ function generateTheme(options: any = {}) {
 
   return {
     palette: colorPalette,
-    typograpgy,
+    typography,
     spacing,
     breakpoints,
     zIndex,

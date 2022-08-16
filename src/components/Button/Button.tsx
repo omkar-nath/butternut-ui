@@ -10,7 +10,7 @@ export interface ButtonProps{
     label:string;
 }
 
-const Button = (props:ButtonProps)=>{
+function Button (props:ButtonProps){
     return (<ButtonComp>{props.label}</ButtonComp>);
 }
 
