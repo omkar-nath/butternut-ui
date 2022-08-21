@@ -1,18 +1,20 @@
-import { generateColorPalette } from "../../Colors/utils/generateColorPalette";
-import  generateTypography  from "../../Typography/utils/generateTypography";
-
+import { generateColorPalette } from "./Colors/utils/generateColorPalette";
+import generateTypography from "./Typography/utils/generateTypography";
+import generateBreakPoints from "./MediaQueries/generateBreakpoints";
 
 function generateTheme(options: any = {}) {
-
-  const {primaryColor,typography:customTypography={}}=options;
-
+  const {
+    primaryColor,
+    typography: customTypography = {},
+    breakpoints: customBreakpoints = {},
+  } = options;
 
   const colorPalette = generateColorPalette(primaryColor);
   const typography = generateTypography(customTypography);
+  const breakpoints = generateBreakPoints(customBreakpoints);
   //TODO: Add code for other theme defaults
 
   const spacing = {};
-  const breakpoints = {};
   const zIndex = {};
   const components = {};
 

@@ -1,7 +1,7 @@
 import * as React from "react";
 import useTheme from "../ThemeContext/useTheme";
 import ThemeContext  from "../ThemeContext/ThemeContext";
-import { mergeThemes } from "../utils";
+import { mergeThemes } from "../theme";
 type ThemeProviderProps = {
   children: React.ReactNode;
   theme: Object | Function;

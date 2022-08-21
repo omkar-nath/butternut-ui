@@ -1,4 +1,4 @@
-import isProduction from "./checkDevelopmentEnv";
+import isProduction from "../../../../utils/checkDevelopmentEnv";
 import createVariants from "./createTypographyVariants";
 import { DEFAULT_FONT_FAMILY } from "./constants";
 import pixelToRemConvertor from "./pixelToRem";
