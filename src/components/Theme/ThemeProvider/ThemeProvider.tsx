@@ -2,6 +2,7 @@ import * as React from "react";
 import useTheme from "../ThemeContext/useTheme";
 import ThemeContext  from "../ThemeContext/ThemeContext";
 import { mergeThemes } from "../theme";
+
 type ThemeProviderProps = {
   children: React.ReactNode;
   theme: Object | Function;
@@ -12,7 +13,7 @@ type ThemeProviderProps = {
 function ThemeProvider(props: ThemeProviderProps) {
   const { children, theme } = props;
   const existingTheme = useTheme();
-
+  console.log('Hello insdasdasdasdasd theme provider',theme);
   if (process.env.NODE_ENV !== "production") {
     if (existingTheme === null && typeof theme === "function") {
       console.error(
