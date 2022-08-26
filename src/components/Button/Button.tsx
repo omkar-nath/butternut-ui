@@ -3,8 +3,8 @@ import React from "react";
 import styled from "styled-components";
 import ButtonBase from "./ButtonBase";
 
-const ButtonComp = styled(ButtonBase)((props) => ({
-    color: `${props.theme.palette.light.primary}`,
+const ButtonComp = styled(ButtonBase)(({theme}) => ({
+    color: `${theme.palette.light.primary}`,
 }));
 
 export interface ButtonProps {
@@ -13,7 +13,8 @@ export interface ButtonProps {
 
 function Button(props: ButtonProps) {
     console.log('Inside button compo')
-    return <ButtonComp >{props.label}</ButtonComp>;
+    const theme=useTheme();
+    return <ButtonComp theme={theme}>{props.label}</ButtonComp>;
 }
 
 export default Button;
