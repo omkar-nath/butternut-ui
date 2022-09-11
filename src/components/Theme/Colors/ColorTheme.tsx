@@ -2,15 +2,15 @@ import React, { useState, useEffect } from "react";
 import Colorbox from "./Colorbox";
 import ColorPicker from "./ColorPicker";
 import { generateColorPalette, invertColor } from "./utils/generateColorPalette";
-import styled  from "styled-components";
+import styled  from "@emotion/styled";
 import { Colors } from "../types";
 
-const FlexContainer = styled.div.attrs(() => ({}))`
+const FlexContainer = styled.div`
   display: flex;
   margin-bottom: 10px;
 `;
 
-const GridContainer = styled.div.attrs(() => ({}))`
+const GridContainer = styled.div`
   display: grid;
 `;
 
@@ -142,7 +142,7 @@ const Theme = () => {
               colorKey="Outline"
               backgroundColor={light.outline}
               onColor={light.background as string}
-           
+
             />
           </FlexContainer>
           <FlexContainer>
