@@ -1,27 +1,57 @@
 import * as React from "react";
-import styled from "styled-components";
+import styled from "@emotion/styled";
+
+type Props = {
+    action: any;
+    children: React.ReactNode;
+    classes: Record<string, string>;
+    disabled: boolean;
+    component: string;
+    href: "a";
+    to?: any;
+    LinkComponent: string;
+    type: "button" | "reset" | "submit";
+    onBlur: () => void;
+    onClick: () => void;
+    onContextMenu: () => void;
+    onDragLeave: () => void;
+    onFocus: () => void;
+    onFocusVisible: () => void;
+    onKeyDown: () => void;
+    onKeyUp: () => void;
+    onMouseDown: () => void;
+    onMouseUp: () => void;
+    onMouseLeave: () => void;
+    onTouchEnd: () => void;
+    onTouchMove: () => void;
+    onTouchStart: () => void;
+    [unknownKey: string]: any;
+};
 
 export const StyledButtonBase = styled.button`
- display:inline-flex,
- align-items:center,
- justify-content:center,
- position:relative,
- box-sizing:border-box,
- background-color:transparent,
- outline:0,
- border:0,
- margin:0,
- border-radius:0,
- padding:0,
- cursor:'pointer',
- vertical-align:middle,
- -webkit-appearance:none,
- appearance:none,
- text-decoration:none,
- color:inherit
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    box-sizing: border-box;
+    background: transparent;
+    outline: 0;
+    border: 0;
+    margin: 0;
+    border-radius: 20;
+    padding: 0;
+    cursor: pointer;
+    vertical-align: middle;
+    -webkit-appearance: none;
+    appearance: none;
+    text-decoration: none;
+    color: inherit;
 `;
 
-const ButtonBase = React.forwardRef(function ButtonBase(props: any, ref) {
+const ButtonBase = React.forwardRef<
+    HTMLButtonElement,
+    React.PropsWithChildren<Props>
+>(function ButtonBase(props, ref) {
     const {
         action,
         children,
@@ -30,7 +60,7 @@ const ButtonBase = React.forwardRef(function ButtonBase(props: any, ref) {
         onBlur,
         onClick,
         onContextMenu,
-        LinkComponent='a',
+        LinkComponent = "a",
         onDragLeave,
         onFocus,
         onFocusVisible,
@@ -48,20 +78,20 @@ const ButtonBase = React.forwardRef(function ButtonBase(props: any, ref) {
 
     let ComponentProp = component;
 
-    if (ComponentProp === 'button' && (other.href || other.to)) {
-      ComponentProp = LinkComponent;
+    if (ComponentProp === "button" && (other.href || other.to)) {
+        ComponentProp = LinkComponent;
     }
-    const buttonProps : any= {};
-    if (ComponentProp === 'button') {
-      buttonProps.type = type === undefined ? 'button' : type;
-      buttonProps.disabled = disabled;
+    const buttonProps: any = {};
+    if (ComponentProp === "button") {
+        buttonProps.type = type === undefined ? "button" : type;
+        buttonProps.disabled = disabled;
     } else {
-      if (!other.href && !other.to) {
-        buttonProps.role = 'button';
-      }
-      if (disabled) {
-        buttonProps['aria-disabled'] = disabled;
-      }
+        if (!other.href && !other.to) {
+            buttonProps.role = "button";
+        }
+        if (disabled) {
+            buttonProps["aria-disabled"] = disabled;
+        }
     }
 
     return (
@@ -89,6 +119,5 @@ const ButtonBase = React.forwardRef(function ButtonBase(props: any, ref) {
         </StyledButtonBase>
     );
 });
-
 
 export default ButtonBase;

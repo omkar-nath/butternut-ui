@@ -9,7 +9,7 @@ console.log(theme);
 function ButtonWithTheme({theme,label}) {
     return (
         <ThemeProvider theme={theme}>
-            <Button label={label}></Button>
+            <Button><p>Hello World!</p></Button>
         </ThemeProvider>
     );
 }
